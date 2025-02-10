@@ -2,8 +2,11 @@
 name = "RazorTestTokens"
 version = "1.0.0"
 authors = []
+upgrade_policy = "compatible"
 
 [addresses]
+razor_test_tokens = "_"
+admin = "0x0133e0a39bdfcf5bbde2b1f4def9f36b2842693345ccc49d6aa6f2ee8c7ccf9a"
 
 [dev-addresses]
 
