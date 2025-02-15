@@ -24,8 +24,8 @@ module razor_test_tokens::usdt_token {
     /// The account is denylisted
     const ERROR_DENYLISTED: u64 = 15;
 
-    const ASSET_SYMBOL: vector<u8> = b"USDT";
-    const ASSET_NAME: vector<u8> = b"Tether USD";
+    const ASSET_SYMBOL: vector<u8> = b"tUSDT";
+    const ASSET_NAME: vector<u8> = b"Test Tether USD";
     const DECIMALS: u8 = 6;
 
     const MAX_SUPPLY: u128 = 100000000000000000;

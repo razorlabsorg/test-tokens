@@ -8,8 +8,8 @@ APTOS_NETWORK ?= custom
 ARTIFACTS_LEVEL ?= sparse
 DEFAULT_FUND_AMOUNT ?= 100000000
 DEFAULT_FUNDER_PRIVATE_KEY ?= 0x0
-DEV_ACCOUNT ?= 0x0133e0a39bdfcf5bbde2b1f4def9f36b2842693345ccc49d6aa6f2ee8c7ccf9a
-TEST_TOKEN_ADDRESS ?= 0x4b4c2e725e1088a755c1ae6061fc04e16a094b1a09b275e31aa919da3620eb78
+DEV_ACCOUNT ?= 0xfaded96b72a03b2ed9e2b2dc0bef0642d63e07fd7b1eeeac047188eb1ef34dd6
+TEST_TOKEN_ADDRESS ?= 0xb4449b14f25133bf00a18e898ce6a29e70c408cf07673ae7289d547cc6851f9e
 
 # ============================= CLEAN ============================= #
 clean:
@@ -18,29 +18,42 @@ clean:
 # ===================== PACKAGE AMM ===================== #
 
 compile:
-	aptos move compile \
+	movement move compile \
 	--save-metadata \
 	--included-artifacts sparse \
 	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)"
 
 test:
-	aptos move test \
+	movement move test \
 	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)" \
 	--coverage
 
-publish:
-	aptos move deploy-object \
+publish-testnet:
+	movement move create-object-and-publish-package \
 	--included-artifacts sparse \
 	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)" \
 	--address-name razor_test_tokens
 
-upgrade:
-	aptos move upgrade-object \
+publish-mainnet:
+	movement move create-object-and-publish-package \
+	--included-artifacts sparse \
+	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)" \
 	--address-name razor_test_tokens \
+	--profile mainnet
+
+upgrade-testnet:
+	movement move upgrade-object-package \
 	--included-artifacts sparse \
 	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)" \
 	--object-address $(TEST_TOKEN_ADDRESS)
 
+upgrade-mainnet:
+	movement move upgrade-object-package \
+	--included-artifacts sparse \
+	--named-addresses "razor_test_tokens=$(DEV_ACCOUNT)" \
+	--object-address $(TEST_TOKEN_ADDRESS) \
+	--profile mainnet
+
 docs:
-	aptos move document \
+	movement move document \
 	--named-addresses "razor_test_tokens=$(TEST_TOKEN_ADDRESS)"

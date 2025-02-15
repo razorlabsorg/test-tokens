@@ -6,7 +6,7 @@ upgrade_policy = "compatible"
 
 [addresses]
 razor_test_tokens = "_"
-admin = "0x0133e0a39bdfcf5bbde2b1f4def9f36b2842693345ccc49d6aa6f2ee8c7ccf9a"
+admin = "0xfaded96b72a03b2ed9e2b2dc0bef0642d63e07fd7b1eeeac047188eb1ef34dd6"
 
 [dev-addresses]
 

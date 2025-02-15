@@ -24,8 +24,8 @@ module razor_test_tokens::usdc_token {
     /// The account is denylisted
     const ERROR_DENYLISTED: u64 = 15;
 
-    const ASSET_SYMBOL: vector<u8> = b"USDC";
-    const ASSET_NAME: vector<u8> = b"USD Coin";
+    const ASSET_SYMBOL: vector<u8> = b"tUSDC";
+    const ASSET_NAME: vector<u8> = b"Test USD Coin";
     const DECIMALS: u8 = 6;
 
     const MAX_SUPPLY: u128 = 100000000000000000;

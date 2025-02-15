@@ -24,8 +24,8 @@ module razor_test_tokens::weth_token {
     /// The account is denylisted
     const ERROR_DENYLISTED: u64 = 15;
 
-    const ASSET_SYMBOL: vector<u8> = b"WETH";
-    const ASSET_NAME: vector<u8> = b"Wrapped Ether";
+    const ASSET_SYMBOL: vector<u8> = b"tWETH";
+    const ASSET_NAME: vector<u8> = b"Test Wrapped Ether";
     const DECIMALS: u8 = 8;
 
     const MAX_SUPPLY: u128 = 100000000000000000;
